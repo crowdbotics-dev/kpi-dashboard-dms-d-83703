@@ -68,7 +68,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', "test_home", "kpi_dashboar_dm"
+    'django.contrib.sites', "test_home", "kpi_dashboar_dm", "true"
 ]
 LOCAL_APPS = [
     'home',
