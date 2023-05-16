@@ -15,6 +15,12 @@ function api_v1_login_create(payload) {
 function api_v1_signup_create(payload) {
   return kpidashboarddmsdAPI.post(`/api/v1/signup/`, payload.data)
 }
+function api_v1_article_list(payload) {
+  return kpidashboarddmsdAPI.get(`/api/v1/article/`)
+}
+function api_v1_article_create(payload) {
+  return kpidashboarddmsdAPI.post(`/api/v1/article/`, payload.data)
+}
 function rest_auth_user_retrieve(payload) {
   return kpidashboarddmsdAPI.get(`/rest-auth/user/`)
 }
@@ -50,6 +56,21 @@ function rest_auth_logout_retrieve(payload) {
 function rest_auth_logout_create(payload) {
   return kpidashboarddmsdAPI.post(`/rest-auth/logout/`)
 }
+function api_v1_article_retrieve(payload) {
+  return kpidashboarddmsdAPI.get(`/api/v1/article/${payload.id}/`)
+}
+function api_v1_article_update(payload) {
+  return kpidashboarddmsdAPI.put(`/api/v1/article/${payload.id}/`, payload.data)
+}
+function api_v1_article_partial_update(payload) {
+  return kpidashboarddmsdAPI.patch(
+    `/api/v1/article/${payload.id}/`,
+    payload.data
+  )
+}
+function api_v1_article_destroy(payload) {
+  return kpidashboarddmsdAPI.delete(`/api/v1/article/${payload.id}/`)
+}
 function rest_auth_registration_create(payload) {
   return kpidashboarddmsdAPI.post(`/rest-auth/registration/`, payload.data)
 }
@@ -76,6 +97,8 @@ export const apiService = {
   api_v1_home_create,
   api_v1_login_create,
   api_v1_signup_create,
+  api_v1_article_list,
+  api_v1_article_create,
   rest_auth_user_retrieve,
   rest_auth_user_update,
   rest_auth_user_partial_update,
@@ -87,6 +110,10 @@ export const apiService = {
   api_v1_home_destroy,
   rest_auth_logout_retrieve,
   rest_auth_logout_create,
+  api_v1_article_retrieve,
+  api_v1_article_update,
+  api_v1_article_partial_update,
+  api_v1_article_destroy,
   rest_auth_registration_create,
   rest_auth_password_reset_create,
   rest_auth_password_change_create,
