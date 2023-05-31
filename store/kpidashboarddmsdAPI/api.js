@@ -3,6 +3,12 @@ const kpidashboarddmsdAPI = axios.create({
   baseURL: "https://kpi-dashboard-dms-d-83703.botics.co",
   headers: { Accept: "application/json", "Content-Type": "application/json" }
 })
+function api_v1_art_list(payload) {
+  return kpidashboarddmsdAPI.get(`/api/v1/art/`)
+}
+function api_v1_art_create(payload) {
+  return kpidashboarddmsdAPI.post(`/api/v1/art/`, payload.data)
+}
 function api_v1_home_list(payload) {
   return kpidashboarddmsdAPI.get(`/api/v1/home/`)
 }
@@ -40,6 +46,18 @@ function api_docs_schema_retrieve(payload) {
   return kpidashboarddmsdAPI.get(`/api-docs/schema/`, {
     params: { lang: payload.lang }
   })
+}
+function api_v1_art_retrieve(payload) {
+  return kpidashboarddmsdAPI.get(`/api/v1/art/${payload.id}/`)
+}
+function api_v1_art_update(payload) {
+  return kpidashboarddmsdAPI.put(`/api/v1/art/${payload.id}/`, payload.data)
+}
+function api_v1_art_partial_update(payload) {
+  return kpidashboarddmsdAPI.patch(`/api/v1/art/${payload.id}/`, payload.data)
+}
+function api_v1_art_destroy(payload) {
+  return kpidashboarddmsdAPI.delete(`/api/v1/art/${payload.id}/`)
 }
 function rest_auth_login_create(payload) {
   return kpidashboarddmsdAPI.post(`/rest-auth/login/`, payload.data)
@@ -111,6 +129,8 @@ function rest_auth_registration_verify_email_create(payload) {
   )
 }
 export const apiService = {
+  api_v1_art_list,
+  api_v1_art_create,
   api_v1_home_list,
   api_v1_home_create,
   api_v1_login_create,
@@ -123,6 +143,10 @@ export const apiService = {
   rest_auth_user_update,
   rest_auth_user_partial_update,
   api_docs_schema_retrieve,
+  api_v1_art_retrieve,
+  api_v1_art_update,
+  api_v1_art_partial_update,
+  api_v1_art_destroy,
   rest_auth_login_create,
   api_v1_home_retrieve,
   api_v1_home_update,
